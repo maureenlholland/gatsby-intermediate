@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
 import { jsx } from 'theme-ui';
 import { Global } from '@emotion/core';
 
