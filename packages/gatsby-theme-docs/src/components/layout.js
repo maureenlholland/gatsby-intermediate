@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 const Layout = ({ children }) => {
-    <React.fragment>
-        <header>gatsby-theme-docs</header>
-        <main>{children}</main>
-    </React.fragment>
+    console.log(children);
+    return (
+        <Fragment>
+            <header>gatsby-theme-docs</header>
+            <main>{children}</main>
+        </Fragment>
+    );
 }
 
-export default Layout
+export default Layout;

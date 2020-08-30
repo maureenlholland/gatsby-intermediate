@@ -84,4 +84,36 @@ exports.createResolvers = ({ createResolvers }) => {
             }
         }
     });
-}
+};
+
+// inside createPages, graphql is function NOT template tag
+exports.createPages = async ({ actions, graphql, reporter }) => {
+    const result = await graphql(`
+        query {
+            allDocsPage {
+                nodes {
+                    id
+                    path
+                }
+            }
+        }
+    `);
+
+    if (result.errors) {
+        reporter.panic('error loading docs', result.errors);
+    }
+
+    const pages = result.data.allDocsPage.nodes;
+
+    pages.forEach(page => {
+        // path & component are required
+        // whatever name you give in context, will be used in graphQL variable
+        actions.createPage({
+            path: page.path,
+            component: require.resolve('./src/templates/docs-page-template'),
+            context: {
+                pageID: page.id,
+            }
+        })
+    });
+};
