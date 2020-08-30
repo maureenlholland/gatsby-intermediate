@@ -1,11 +1,19 @@
+/** @jsx jsx */
 import React, { Fragment } from 'react';
+import { jsx } from 'theme-ui';
+import { Global } from '@emotion/core';
 
 const Layout = ({ children }) => {
-    console.log(children);
+
     return (
         <Fragment>
-            <header>gatsby-theme-docs</header>
-            <main>{children}</main>
+            <Global styles={{ body: { margin: 0 } }}></Global>
+            <header
+                sx={{ bg: 'primary', color: 'background', fontFamily: 'heading', p: 3 }}
+            >gatsby-theme-docs</header>
+            <main
+                sx={{ mx: 'auto', maxWidth: 650, width: '90vw' }}
+            >{children}</main>
         </Fragment>
     );
 }
