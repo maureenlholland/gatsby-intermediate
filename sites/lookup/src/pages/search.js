@@ -1,4 +1,5 @@
 import React from 'react';
+import Form from '../components/form';
 
 const Search = () => (
     <>
@@ -8,6 +9,7 @@ const Search = () => (
         </p>
         {/* todo: add search form */}
         {/* todo: add results */}
+        <Form/>
     </>
 );
 
